@@ -1,0 +1,83 @@
+﻿@model IEnumerable<Hotel.Models.Staff>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Index</h1>
+
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.staff_FName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.staff_LName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.staff_Gender)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.department)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.staff_Position)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.staff_Email)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.staff_Password)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.staff_Phone)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.staff_Address)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.staff_FName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.staff_LName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.staff_Gender)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.department.de_Name)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.staff_Position)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.staff_Email)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.staff_Password)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.staff_Phone)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.staff_Address)
+            </td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.staff_ID">Edit</a> |
+                <a asp-action="Details" asp-route-id="@item.staff_ID">Details</a> |
+                <a asp-action="Delete" asp-route-id="@item.staff_ID">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

@@ -1,0 +1,53 @@
+﻿@model IEnumerable<Hotel.Models.Consumption>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Index</h1>
+
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.guest)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.service)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Service_Quantity)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.con_Amount)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.guest.Email)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.service.BS_Name)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Service_Quantity)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.con_Amount)
+            </td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.con_ID">Edit</a> |
+                <a asp-action="Details" asp-route-id="@item.con_ID">Details</a> |
+                <a asp-action="Delete" asp-route-id="@item.con_ID">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

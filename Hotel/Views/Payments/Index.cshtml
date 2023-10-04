@@ -1,0 +1,77 @@
+﻿@model IEnumerable<Hotel.Models.Payment>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Index</h1>
+
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.guest)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Accommodation_days)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Consumption_Charges)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.create_date)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.payment_Rate)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.payment_Amount)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.pay_method)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.paid_date)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.guest.Email)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Accommodation_days)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Consumption_Charges)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.create_date)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.payment_Rate)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.payment_Amount)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.pay_method)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.paid_date)
+            </td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.payment_ID">Edit</a> |
+                <a asp-action="Details" asp-route-id="@item.payment_ID">Details</a> |
+                <a asp-action="Delete" asp-route-id="@item.payment_ID">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

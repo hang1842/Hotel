@@ -1,0 +1,67 @@
+﻿@model Hotel.Models.Payment
+
+@{
+    ViewData["Title"] = "Create";
+}
+
+<h1>Create</h1>
+
+<h4>Payment</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Create">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="guestID" class="control-label"></label>
+                <select asp-for="guestID" class ="form-control" asp-items="ViewBag.guestID"></select>
+            </div>
+            <div class="form-group">
+                <label asp-for="Accommodation_days" class="control-label"></label>
+                <input asp-for="Accommodation_days" class="form-control" />
+                <span asp-validation-for="Accommodation_days" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Consumption_Charges" class="control-label"></label>
+                <input asp-for="Consumption_Charges" class="form-control" />
+                <span asp-validation-for="Consumption_Charges" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="create_date" class="control-label"></label>
+                <input asp-for="create_date" class="form-control" />
+                <span asp-validation-for="create_date" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="payment_Rate" class="control-label"></label>
+                <input asp-for="payment_Rate" class="form-control" />
+                <span asp-validation-for="payment_Rate" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="payment_Amount" class="control-label"></label>
+                <input asp-for="payment_Amount" class="form-control" />
+                <span asp-validation-for="payment_Amount" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="pay_method" class="control-label"></label>
+                <input asp-for="pay_method" class="form-control" />
+                <span asp-validation-for="pay_method" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="paid_date" class="control-label"></label>
+                <input asp-for="paid_date" class="form-control" />
+                <span asp-validation-for="paid_date" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Create" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}
